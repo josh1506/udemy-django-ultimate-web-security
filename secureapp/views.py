@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import CreateUserForm
 
 
 def home(request):
@@ -6,7 +8,18 @@ def home(request):
 
 
 def register(request):
-    return render(request, 'register.html')
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {'RegisterForm': form,}
+
+    return render(request, 'register.html', context)
 
 
 def dashboard(request):
