@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
+
+    'django_recaptcha',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -130,3 +132,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Recaptcha keys
+# https://cloud.google.com/security/products/recaptcha?hl=en
+RECAPTCHA_PUBLIC_KEY = '6LfD-WUrAAAAAGK98Mq2qM-TXmpWnUK2ANLCYi6P'
+RECAPTCHA_PRIVATE_KEY = '6LfD-WUrAAAAAHp7yTrwYjqdiGwtmLRDuQri2j9k'
