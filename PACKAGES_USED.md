@@ -3,3 +3,6 @@
 
 # django-crispy-forms 2.4
 - pip install django-crispy-forms
+
+# django-recaptcha 4.1.0
+- pip install django-recaptcha
