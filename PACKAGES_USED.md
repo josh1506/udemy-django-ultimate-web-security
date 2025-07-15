@@ -6,3 +6,9 @@
 
 # django-recaptcha 4.1.0
 - pip install django-recaptcha
+
+# django-auto-logout 0.5.1
+- pip install django-auto-logout
+
+# pytz 2025.2
+- pip install pytz
