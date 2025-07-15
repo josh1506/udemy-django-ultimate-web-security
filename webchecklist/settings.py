@@ -44,6 +44,11 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
 
     'django_recaptcha',
+
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -55,6 +60,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware', # 2FA
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -114,7 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+TIME_ZONE = 'Asia/Manila'
 
 USE_I18N = True
 
@@ -137,3 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://cloud.google.com/security/products/recaptcha?hl=en
 RECAPTCHA_PUBLIC_KEY = '6LfD-WUrAAAAAGK98Mq2qM-TXmpWnUK2ANLCYi6P'
 RECAPTCHA_PRIVATE_KEY = '6LfD-WUrAAAAAHp7yTrwYjqdiGwtmLRDuQri2j9k'
+
+# 2FA
+LOGIN_URL = 'two_factor:login'
+LOGIN_REDIRECT_URL = 'dashboard'

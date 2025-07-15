@@ -2,6 +2,26 @@
 
 {% block content %}
 
-<h1>Dashboard</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
+    <a class="navbar-brand main-heading" href="{% url 'dashboard' %}">
+        &nbsp; SecureX
+    </a>
+
+    <ul class="d-flex gap-2 nav">
+        <li>
+            <a href="{% url 'logout' %}">Logout</a>
+        </li>
+    </ul>
+</nav>
+<div class="container bg-white shadow-md p-5 form-layout">
+    <div>
+        <h2>Welcome {{user}}</h2>
+        <p>This is dashboard page</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-info btn-block btn-danger" href="{% url 'two_factor:setup' %}">Enable 2FA</a>
+        <a class="btn btn-info btn-block btn-dark" href="{% url 'two_factor:profile' %}">2FA Account Settings</a>
+    </div>
+</div>
 
 {% endblock %}
