@@ -12,3 +12,7 @@
 
 # pytz 2025.2
 - pip install pytz
+
+# django-environ 0.12.0
+- pip install django-environ
+
