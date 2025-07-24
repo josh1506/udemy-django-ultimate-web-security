@@ -32,3 +32,7 @@ def dashboard(request):
 def logout(request):
     auth.logout(request)
     return redirect('home')
+
+
+def account_locked(request):
+    return render(request, 'account_locked.html')

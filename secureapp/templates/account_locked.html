@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container bg-white shadow-md p-5 form-layout mt-5 text-center">
+    <div>
+        <i class="fa fa-lock fa-3x text-dark" aria-hidden="true"></i>
+        <br><br>
+        <h3>Account Locked</h3>
+        <br>
+        <p>You have been locked out of your account due to multiple failed login attempts</p>
+        <p>You may re-attempt to login to your account after the expiry period.</p>
+    </div>
+    <a class="btn btn-info" type="button" href="{% url 'home' %}">
+        Return to homepage
+    </a>
+</div>
+
+{{ redirect_to_login_immediately }}
+
+{% endblock %}
