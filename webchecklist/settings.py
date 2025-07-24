@@ -55,10 +55,20 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
     'two_factor',
+
+    'axes',  # Axes
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_auto_logout.middleware.auto_logout',  # Auto Logout
+    'axes.middleware.AxesMiddleware',  # Axes
 ]
 
 ROOT_URLCONF = 'webchecklist.urls'
@@ -160,3 +171,10 @@ AUTO_LOGOUT = {
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
     'MESSAGE': 'The session has expired. Please login again to continue.',
 }
+
+# Axes configuration
+AXES_FAILURE_LIMIT = 3  # How many times a user can fail a login
+AXES_COOLOFF_TIME = 2  # Wait 2 hours before attempting to login again
+AXES_RESET_ON_SUCCESS = True  # Reset failed login attempts
+AXES_LOCKOUT_TEMPLATE = 'account_locked.html'  # Add a costume template
+AXES_LOCKOUT_PARAMETERS = ["username"]

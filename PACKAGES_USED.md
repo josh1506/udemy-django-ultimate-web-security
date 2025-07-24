@@ -16,3 +16,5 @@
 # django-environ 0.12.0
 - pip install django-environ
 
+# django-axes
+- pip install django-axes
