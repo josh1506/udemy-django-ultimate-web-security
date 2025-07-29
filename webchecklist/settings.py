@@ -178,3 +178,7 @@ AXES_COOLOFF_TIME = 2  # Wait 2 hours before attempting to login again
 AXES_RESET_ON_SUCCESS = True  # Reset failed login attempts
 AXES_LOCKOUT_TEMPLATE = 'account_locked.html'  # Add a costume template
 AXES_LOCKOUT_PARAMETERS = ["username"]
+
+# SMTP configuration
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'test@example.com'
