@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -31,6 +32,7 @@ def dashboard(request):
 
 def logout(request):
     auth.logout(request)
+    messages.success(request, 'You have been logged out.')
     return redirect('home')
 
 
