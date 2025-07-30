@@ -54,6 +54,18 @@
 </nav>
 
 
+{% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div id="message-timer" class="alert alert-success text-center float-center" role="alert">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                &nbsp; {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
 <body>
 
 
