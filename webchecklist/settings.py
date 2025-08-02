@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 
+from django.conf.global_settings import SECURE_HSTS_SECONDS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -182,3 +184,22 @@ AXES_LOCKOUT_PARAMETERS = ["username"]
 # SMTP configuration
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'test@example.com'
+
+
+# Pre-deployment security option
+
+# python manage.py check --deploy
+
+# CSRF protection
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# SSL redirect
+SECURE_SSL_REDIRECT = True
+
+# Enable HSTS
+SECURE_HSTS_SECONDS = 86400
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Look into a CSP (Content Security Policy)
